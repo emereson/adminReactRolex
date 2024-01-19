@@ -11,17 +11,15 @@ import Users from './pages/Users';
 import OneSection from './pages/OneSection';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="app_container">
       <ToastContainer />
       <Header />
       <Routes>
         <Route path="/log-in" element={<Login />} />
-        <Route path="/users" element={<Users />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<Sections />} />
+          <Route path="/users" element={<Users />} />
           <Route path="/section/:id" element={<OneSection />} />
         </Route>
       </Routes>
