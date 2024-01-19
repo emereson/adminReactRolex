@@ -1,0 +1,145 @@
+.crud__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.774);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    transform: translateX(0%);
+    transition: 1s;
+    z-index: 100;
+}
+
+.closeCrud__container {
+    transform: translateX(110%);
+    transition: 1s;
+}
+
+.crud__container i {
+    color: var(--body-white);
+    font-size: 2em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.crud__container i:hover {
+    color: var(--body-red);
+    transition: 0.5s;
+}
+
+.crud__form {
+    width: 20em;
+    height: auto;
+    max-height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1em;
+    background-color: var(--body-black);
+    padding: 1.5em;
+    overflow-y: auto;
+    border-radius: 1em;
+    z-index: 20;
+}
+
+.crud__form h3 {
+    color: var(--body-white);
+    margin: auto;
+    font-size: 1.2em;
+}
+
+.crud__form div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.crud__form label {
+    width: 90%;
+    color: var(--body-white);
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.crud__form input {
+    width: 90%;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 0.3em;
+    text-align: center;
+    border: none;
+    padding: 0.2em;
+}
+
+.crud__form textarea {
+    width: 90%;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 0.3em;
+    text-align: center;
+    border: none;
+
+}
+
+.crud__form select {
+    width: 90%;
+    font-size: 1.1em;
+    font-weight: 500;
+    border-radius: 0.3em;
+    text-align: center;
+    border: none;
+    padding: 0.2em;
+}
+
+.crud__form img {
+    position: relative;
+}
+
+.crud__div p {
+    color: var(--body-white);
+}
+
+.crud__button {
+    margin: auto;
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: 600;
+    background-color: var(--body-white);
+    color: var(--body-black);
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.crud__formVideo {
+    position: relative !important;
+    width: 100% !important;
+    margin: auto !important;
+    filter: brightness(1) !important;
+}
+
+.crud__button:hover {
+    background-color: var(--body-red);
+    transition: 0.5s;
+    color: var(--body-white);
+}
+
+.crudForm__deleteButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.crudForm__cancelDelete:hover {
+    background-color: var(--body-gray);
+}

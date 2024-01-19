@@ -1,0 +1,103 @@
+.oneSectionFrontPage__titleVideoContainer {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    gap: 3em;
+    padding: 1em 45px;
+}
+
+.oneSectionFrontPage__videosContainer {
+    position: relative;
+    width: 50%;
+    height: 25vw;
+    max-height: 600px;
+}
+
+.oneSectionFrontPage__videoBlur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(50px);
+    border-radius: 0.5em;
+    scale: 1.1;
+
+}
+
+.oneSectionFrontPage__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+    border-radius: 0.5em;
+
+}
+
+.oneSectionFrontPage__titleContainer {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 1em;
+    gap: 1em;
+    color: var(--text-color-white);
+}
+
+.oneSectionFrontPage__titleContainer div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.oneSectionFrontPage__titleContainer p {
+    font-size: 0.9em;
+}
+
+.oneSectionFrontPage__titleContainer button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: 600;
+    background-color: transparent;
+    color: var(--text-color-white);
+    border: 1px solid var(--body-white);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s
+}
+
+.oneSectionFrontPage__titleContainer button:hover {
+    background-color: var(--body-white);
+    color: var(--text-color-black);
+    transition: 0.5s
+}
+
+.oneSectionFrontPage__titleContainer span {
+    margin: auto;
+    padding: 0.5em 1em;
+    font-size: 0.7em;
+    font-weight: 600;
+    background-color: transparent;
+    color: var(--text-color-white);
+    border: 1px solid var(--body-white);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s
+}
+
+.oneSectionFrontPage__titleContainer span:hover {
+    background-color: var(--body-red);
+    border: 1px solid var(--body-red);
+    transition: 0.5s
+}

@@ -1,0 +1,57 @@
+.user__container {
+    width: 100%;
+    max-width: 2000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 7em 1em;
+    gap: 2em;
+}
+
+.user__titleCreate {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color-white);
+}
+
+.user__titleCreate p {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-weight: 700;
+    background-color: transparent;
+    color: var(--text-color-white);
+    border: 1px solid var(--body-white);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s
+}
+
+.user__titleCreate p:hover {
+    background-color: var(--body-white);
+    color: var(--text-color-black);
+    transition: 0.5s
+}
+
+.tableUsers__container th,
+.tableUsers__container td {
+    border: 1px solid var(--body-white);
+    padding: 8px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--body-white);
+}
+
+.tableUsers__container th {
+    border: 1px solid #e2e2e2;
+    background-color: var(--body-black);
+    font-size: 1.1em;
+}
+
+.tableUsers__container p:hover {
+    color: var(--body-red);
+    cursor: pointer;
+
+}
