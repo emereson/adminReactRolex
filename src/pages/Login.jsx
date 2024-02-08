@@ -22,7 +22,7 @@ const Login = () => {
       })
 
       .catch((err) => {
-        toast.error(err.data);
+        toast.error('password or email incorrect');
       });
 
     reset();

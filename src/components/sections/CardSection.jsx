@@ -2,9 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import UpdateSection from './crudSection/UpdateSection';
 import DeleteSection from './crudSection/DeleteSection';
+import ReactPlayer from 'react-player';
 
 const CardSection = ({ section, setCrud, crud }) => {
   const [viewTitle, setViewTitle] = useState(false);
+  const [playVideo, setPlayVideo] = useState(false);
+
   const videoRef = useRef(null);
   const videoBlurRef = useRef(null);
 
@@ -25,37 +28,37 @@ const CardSection = ({ section, setCrud, crud }) => {
     }
   }, [viewTitle]);
 
+  const toggleVideoPlay = () => {
+    setViewTitle(true);
+    setPlayVideo(true);
+  };
+
+  const toggleVideoPause = () => {
+    setViewTitle(false);
+    setPlayVideo(false);
+  };
+
   return (
     <div
-      className={`cardSection__container ${
-        viewTitle ? 'cardSection__viewTitle' : ''
-      } `}
-      onMouseOver={() => setViewTitle(true)}
-      onMouseOut={() => setViewTitle(false)}
+      className="cardSection__container"
+      onMouseOver={toggleVideoPlay}
+      onMouseOut={toggleVideoPause}
     >
-      <img src={section.sectionImg} alt={section.title} />
-      <video
-        ref={videoBlurRef}
-        muted
-        loop
-        className={`cardSection__blurVideo ${
-          !viewTitle ? 'close__blurVideo' : ''
-        }`}
-      >
-        <source src={section.linkVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <video
-        ref={videoRef}
-        muted
-        loop
-        className={`cardSection__video  ${
-          !viewTitle ? 'close__video' : ''
-        }`}
-      >
-        <source src={section.linkVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <img
+        src={section.sectionImg}
+        alt={section.title}
+        style={playVideo ? { opacity: '0' } : { opacity: '1' }}
+      />
+
+      <ReactPlayer
+        playing={playVideo}
+        volume={0}
+        url={section.linkVideo}
+        controls={false}
+        loop={true}
+        width="100%"
+        responsive={true}
+      />
 
       <Link
         to={`/section/${section.id}`}

@@ -2,29 +2,36 @@ import React from 'react';
 import CreateSectionDescription from './crudDecriptionSection/CreateSectionDescription';
 import './oneSectionStyle/oneSectionFronPage.css';
 import DeleteSectionDescription from './crudDecriptionSection/DeleteSectionDescription';
+import ReactPlayer from 'react-player';
 
 const OneSectionFrontPage = ({ section, crud, setCrud }) => {
   return (
     <section className="oneSectionFrontPage__titleVideoContainer">
       <article className="oneSectionFrontPage__videosContainer">
-        <video
-          autoPlay
-          muted
-          loop
-          className="oneSectionFrontPage__videoBlur"
-        >
-          <source src={section?.linkVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <video
-          autoPlay
-          muted
-          loop
-          className="oneSectionFrontPage__video"
-        >
-          <source src={section?.linkVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div className="oneSectionFrontPage__videoBlur">
+          <ReactPlayer
+            playing={true}
+            volume={0}
+            url={section.linkVideo}
+            controls={false}
+            loop={true}
+            width="100%"
+            height="100%"
+            responsive={true}
+          />
+        </div>
+        <div className="oneSectionFrontPage__video">
+          <ReactPlayer
+            playing={true}
+            volume={0}
+            url={section.linkVideo}
+            controls={false}
+            loop={true}
+            width="100%"
+            height="100%"
+            responsive={true}
+          />
+        </div>
       </article>
       <article className="oneSectionFrontPage__titleContainer">
         <h1>{section?.title}</h1>

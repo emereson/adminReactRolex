@@ -4,7 +4,6 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import config from '../../../utils/getToken';
 import ViewSelectImg from '../../../hooks/ViewSelectImg';
-import ViewSelectVideo from '../../../hooks/ViewSelectVideo';
 
 const UpdateSection = ({ crud, setCrud, section }) => {
   const {
@@ -15,17 +14,6 @@ const UpdateSection = ({ crud, setCrud, section }) => {
     deleteSelectImgClick,
   } = ViewSelectImg({ idElementImg: `sectionImg${section.id}` });
 
-  // Para los videos
-  const {
-    selectedVideo,
-    selectedFileVideo,
-    handleVideoChange,
-    handleOnClickVideo,
-    deleteSelectVideoClick,
-  } = ViewSelectVideo({
-    idElementVideo: `sectionVideo${section.id}`,
-  });
-
   const { register, handleSubmit, reset } = useForm();
 
   const submit = (data) => {
@@ -34,12 +22,9 @@ const UpdateSection = ({ crud, setCrud, section }) => {
     }`;
     const formData = new FormData();
     formData.append('title', data.title);
+    formData.append('linkVideo', data.linkVideo);
     if (selectedFileImg) {
       formData.append('sectionImg', selectedFileImg);
-    }
-
-    if (selectedFileVideo) {
-      formData.append('video', selectedFileVideo);
     }
 
     axios
@@ -47,13 +32,11 @@ const UpdateSection = ({ crud, setCrud, section }) => {
       .then((res) => {
         toast.success('changes were saved successfully');
         deleteSelectImgClick();
-        deleteSelectVideoClick();
         setCrud('');
       })
       .catch((err) => {
         toast.error('There was an error saving changes');
         deleteSelectImgClick();
-        deleteSelectVideoClick();
         setCrud('');
         console.log(err);
       });
@@ -72,7 +55,6 @@ const UpdateSection = ({ crud, setCrud, section }) => {
         onClick={() => {
           setCrud('');
           deleteSelectImgClick();
-          deleteSelectVideoClick();
         }}
         className="bx bxs-x-circle"
       ></i>
@@ -90,29 +72,13 @@ const UpdateSection = ({ crud, setCrud, section }) => {
         </div>
 
         <div className="crud__div">
-          <label htmlFor={`sectionVideo${section.id}`}>
-            Select Video:
-          </label>
-          <div className="custom-file-input">
-            <input
-              id={`sectionVideo${section.id}`}
-              type="file"
-              onChange={handleVideoChange}
-              style={{ opacity: 0, position: 'absolute', zIndex: -1 }}
-            />
-            <i
-              className="bx bxs-video-plus"
-              onClick={handleOnClickVideo}
-            ></i>
-          </div>
-          <div className="video__preview">
-            {selectedVideo && (
-              <video controls className="crud__formVideo">
-                <source src={selectedVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            )}
-          </div>
+          <label htmlFor="linkVideo">Video Link :</label>
+          <input
+            {...register('linkVideo')}
+            id="linkVideo"
+            type="text"
+            required
+          />
         </div>
 
         <div className="crud__div">

@@ -8,6 +8,10 @@ import CreateSectionVideo from '../components/oneSection/crudSectionVideo/Create
 import CreatePhotoAlbum from '../components/oneSection/crudPhotoAlbum/CreatePhotoAlbum';
 import DeletePhotoAlbum from '../components/oneSection/crudPhotoAlbum/DeletePhotoAlbum';
 import OnseSectionPhotoAlbum from '../components/oneSection/OnseSectionPhotoAlbum';
+import CreateGallery from '../components/oneSection/crudGallery/CreateGallery';
+import DeleteGallery from '../components/oneSection/crudGallery/DeleteGallery';
+import DeletePhotoGallery from '../components/oneSection/crudGallery/DeletePhotoGallery';
+import OnseSectionGallery from '../components/oneSection/OnseSectionGallery';
 
 const OneSection = () => {
   const { id } = useParams();
@@ -15,7 +19,7 @@ const OneSection = () => {
   const videoRef = useRef(null);
   const [crud, setCrud] = useState('');
   const [section, setSection] = useState();
-  const [videos, setVideos] = useState(true);
+  const [select, setSelect] = useState('videos');
 
   useEffect(() => {
     const url = `${import.meta.env.VITE_URL_API}/section/${id}`;
@@ -47,6 +51,7 @@ const OneSection = () => {
       };
     }
   }, [section, id]);
+  console.log(select);
 
   return (
     <div className="oneSection__container">
@@ -62,29 +67,51 @@ const OneSection = () => {
       <section className="oneSection__exampleContianer">
         <article>
           <h2
-            style={videos ? { color: 'red' } : { color: 'white' }}
-            onClick={() => setVideos(true)}
+            style={
+              select === 'videos'
+                ? { color: 'red' }
+                : { color: 'white' }
+            }
+            onClick={() => setSelect('videos')}
           >
             Videos
           </h2>
           <h2
-            style={videos ? { color: 'white' } : { color: 'red' }}
-            onClick={() => setVideos(false)}
+            style={
+              select === 'album'
+                ? { color: 'red' }
+                : { color: 'white' }
+            }
+            onClick={() => setSelect('album')}
           >
             Photo Album
           </h2>
+          <h2
+            style={
+              select === 'gallery'
+                ? { color: 'red' }
+                : { color: 'white' }
+            }
+            onClick={() => setSelect('gallery')}
+          >
+            Gallery
+          </h2>
         </article>
-        {videos ? (
+        {select === 'videos' ? (
           <p onClick={() => setCrud('createExample')}>Create Video</p>
-        ) : (
+        ) : select === 'album' ? (
           <p onClick={() => setCrud('createPhotoAlbum')}>
             Create Album
+          </p>
+        ) : (
+          <p onClick={() => setCrud('CreateGallery')}>
+            Create Gallery
           </p>
         )}
       </section>
 
       <section className="oneSection__videosPhotosContainer">
-        {videos ? (
+        {select === 'videos' ? (
           <div className="oneSection__videosContainer">
             {section?.sectionVideos
               .sort((a, b) => new Date(a.id) - new Date(b.id))
@@ -97,8 +124,14 @@ const OneSection = () => {
                 />
               ))}
           </div>
-        ) : (
+        ) : select === 'album' ? (
           <OnseSectionPhotoAlbum
+            section={section}
+            crud={crud}
+            setCrud={setCrud}
+          />
+        ) : (
+          <OnseSectionGallery
             section={section}
             crud={crud}
             setCrud={setCrud}
@@ -116,6 +149,21 @@ const OneSection = () => {
         setCrud={setCrud}
       />
       <DeletePhotoAlbum
+        section={section}
+        crud={crud}
+        setCrud={setCrud}
+      />
+      <CreateGallery
+        section={section}
+        crud={crud}
+        setCrud={setCrud}
+      />
+      <DeleteGallery
+        section={section}
+        crud={crud}
+        setCrud={setCrud}
+      />
+      <DeletePhotoGallery
         section={section}
         crud={crud}
         setCrud={setCrud}
