@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './oneSectionStyle/OnseSectionPhotoAlbum.css';
-import DeletePhoto from './crudPhotoAlbum/DeletePhoto';
 import DeletePhotoGallery from './crudGallery/DeletePhotoGallery';
 
 const OnseSectionGallery = ({ section, setCrud, crud }) => {
