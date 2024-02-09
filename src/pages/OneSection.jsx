@@ -51,7 +51,6 @@ const OneSection = () => {
       };
     }
   }, [section, id]);
-  console.log(select);
 
   return (
     <div className="oneSection__container">

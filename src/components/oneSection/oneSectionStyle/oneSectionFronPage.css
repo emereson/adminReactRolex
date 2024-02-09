@@ -1,6 +1,7 @@
 .oneSectionFrontPage__titleVideoContainer {
     width: 100%;
-    min-height: 300px;
+
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
