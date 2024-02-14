@@ -5,7 +5,7 @@ import config from '../../../utils/getToken';
 
 const DeleteSectionVideo = ({ video, crud, setCrud }) => {
   const handleSubmit = () => {
-    const url = `${import.meta.env.VITE_URL_API}/category/${
+    const url = `${import.meta.env.VITE_URL_API}/section-video/${
       video.id
     }`;
 
