@@ -69,7 +69,6 @@ const UpdateSectionVideo = ({ crud, setCrud, video }) => {
             id="title"
             type="text"
             defaultValue={video?.title}
-            required
           />
         </div>
         <div className="crud__div">
@@ -79,7 +78,6 @@ const UpdateSectionVideo = ({ crud, setCrud, video }) => {
             id="linkVideo"
             type="text"
             defaultValue={video?.linkVideo}
-            required
           />
         </div>
 

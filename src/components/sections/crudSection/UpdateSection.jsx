@@ -67,7 +67,6 @@ const UpdateSection = ({ crud, setCrud, section }) => {
             id="title"
             type="text"
             defaultValue={section?.title}
-            required
           />
         </div>
 
@@ -77,7 +76,6 @@ const UpdateSection = ({ crud, setCrud, section }) => {
             {...register('linkVideo')}
             id="linkVideo"
             type="text"
-            required
           />
         </div>
 
