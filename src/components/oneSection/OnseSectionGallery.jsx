@@ -24,7 +24,7 @@ const OnseSectionGallery = ({ section, setCrud, crud }) => {
             }}
           >
             <img
-              src={photo.linkImg}
+              src={`${import.meta.env.VITE_URL_Img}${photo.linkImg}`}
               alt=""
               onClick={() => {
                 setViewImg(true);
@@ -68,7 +68,9 @@ const OnseSectionGallery = ({ section, setCrud, crud }) => {
                   </p>
                   <img
                     key={photo.id}
-                    src={photo.linkImg}
+                    src={`${import.meta.env.VITE_URL_Img}${
+                      photo.linkImg
+                    }`}
                     alt=""
                     onClick={() => setViewImg(true)}
                     style={
