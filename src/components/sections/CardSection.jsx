@@ -45,7 +45,7 @@ const CardSection = ({ section, setCrud, crud }) => {
       onMouseOut={toggleVideoPause}
     >
       <img
-        src={`${import.meta.env.VITE_URL_Img}${section.sectionImg}`}
+        src={`${import.meta.env.VITE_URL_IMG}${section.sectionImg}`}
         alt={section.title}
         style={playVideo ? { opacity: '0' } : { opacity: '1' }}
       />
