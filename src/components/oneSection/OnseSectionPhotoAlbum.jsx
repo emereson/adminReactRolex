@@ -23,7 +23,7 @@ const OnseSectionPhotoAlbum = ({ section, setCrud, crud }) => {
             }}
           >
             <img
-              src={photo.linkImg}
+              src={`${import.meta.env.VITE_URL_IMG}${photo.linkImg}`}
               alt=""
               onClick={() => {
                 setViewImg(true);
@@ -67,7 +67,7 @@ const OnseSectionPhotoAlbum = ({ section, setCrud, crud }) => {
                   </p>
                   <img
                     key={photo.id}
-                    src={`${import.meta.env.VITE_URL_Img}${
+                    src={`${import.meta.env.VITE_URL_IMG}${
                       photo.linkImg
                     }`}
                     alt=""
